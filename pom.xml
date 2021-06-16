@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cat.albirar</groupId>
+		<artifactId>albirar-root-dependencies</artifactId>
+		<version>2.4.1</version>
+	</parent>
+	<groupId>cat.albirar.lib</groupId>
+	<artifactId>albirar-te-engines</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Albirar Template Engines parent project</name>
+	<description>The parent project for all template engines implementation</description>
+	<url>https://albirar.github.io/albirar-te-engines/</url>
+
+	<properties>
+		<albirar-te.version>3.0.0</albirar-te.version>
+	</properties>
+
+	<licenses>
+		<license>
+			<name>GNU General Public License v3.0</name>
+			<url>https://www.gnu.org/licenses/gpl-3.0.html</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/albirar/albirar-te-engines</url>
+		<connection>scm:git:https://github.com/albirar/albirar-te-engines.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/albirar/albirar-te-engines.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<ciManagement>
+		<system>TravisCI</system>
+		<url>https://travis-ci.com/github/albirar/albirar-te-engines</url>
+	</ciManagement>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/albirar/albirar-te-engines/issues</url>
+	</issueManagement>
+
+	<developers>
+		<developer>
+			<id>ofornes</id>
+			<name>Octavi Fornés</name>
+			<email>ofornes@albirar.cat</email>
+			<roles>
+				<role>product owner</role>
+				<role>developer</role>
+			</roles>
+			<timezone>Europe/Madrid</timezone>
+		</developer>
+	</developers>
+
+	<dependencies>
+		<!-- Primary reference -->
+		<dependency>
+			<groupId>cat.albirar.lib</groupId>
+			<artifactId>albirar-template-engine</artifactId>
+			<version>${albirar-te.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-publish-plugin</artifactId>
+				<configuration>
+					<pubScmUrl>scm:git:ssh://git@github.com/albirar/albirar-te-engines.git</pubScmUrl>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>dependency-info</report>
+							<report>dependencies</report>
+							<report>team</report>
+							<report>ci-management</report>
+							<report>licenses</report>
+							<report>scm</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+		<site>
+			<id>site_github</id>
+			<url>file://${project.build.directory}/staging</url>
+		</site>
+	</distributionManagement>
+
+</project>
