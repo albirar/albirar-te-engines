@@ -17,7 +17,7 @@
 	<url>https://albirar.github.io/albirar-te-engines/</url>
 
 	<properties>
-		<albirar-template-engine.version>3.3.0-extract-te-thymeleaf-SNAPSHOT</albirar-template-engine.version>
+		<albirar-template-engine.version>3.3.0-SNAPSHOT</albirar-template-engine.version>
 	</properties>
 
 	<licenses>
